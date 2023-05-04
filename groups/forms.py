@@ -12,3 +12,6 @@ class CreateGroupForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CreateGroupForm, self).__init__(*args, **kwargs)
         self.fields["title"].required = True
+        self.fields["title"].label = "Nome do Grupo"
+        self.fields["users"].label = "Pessoas Usuárias do Grupo"
+        
