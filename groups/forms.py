@@ -12,7 +12,8 @@ class CreateGroupForm(forms.ModelForm):
             "all": ('/static/admin/css/widgets.css',)
         }
         js = ("/admin/jsi18n",)
-
+    # Se comentar as linhas 16-20 verá um widget não tão legal quanto 
+    # ao que é mostrado quando as linhas não estão comentadas.
     users = forms.ModelMultipleChoiceField(
         queryset=User.objects.all(),
         widget=FilteredSelectMultiple("Pessoas usuárias", False),
