@@ -12,4 +12,4 @@ def index(request):
             user = User.objects._create_employe(**user_data)
 
     context = {"user_form": CreateUserForm(), "users": User.objects.all()}
-    return render(request, "index.html", context)
+    return render(request, "accounts/index.html", context)
