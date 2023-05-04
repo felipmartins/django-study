@@ -1,8 +1,13 @@
-<form method="post">
-    {% csrf_token %}
-    {{group_form.as_p}}
-    <input type="submit" class="btn" value="Cadastrar">
-</form>
+{% load static %}
+<fieldset>
+    <form method="post">
+        {% csrf_token %}
+        {{group_form.media}}
+        {{group_form.as_table}}
+        <script type="text/javascript" src="{% url 'jsi18n' %}"></script>
+        <input type="submit" class="btn" value="Cadastrar">
+    </form>
+</fieldset>
 
 {% for group in groups %}
 
