@@ -11,5 +11,5 @@ def index(request):
             user_data = user_form.cleaned_data
             user = User.objects._create_employe(**user_data)
 
-    context = {"user_form": CreateUserForm()}
+    context = {"user_form": CreateUserForm(), "users": User.objects.all()}
     return render(request, "index.html", context)
