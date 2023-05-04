@@ -4,3 +4,12 @@
 {{ user_form.as_p }}
 <input type="submit" class="btn" value="Cadastrar">
 </form>
+
+
+{% for user in users %}
+
+<p>
+    {{user}}
+</p>
+
+{% endfor %}
