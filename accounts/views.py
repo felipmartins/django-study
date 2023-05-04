@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from accounts.forms import CreateUserForm
+from accounts.form import CreateUserForm
 
 def index(request):
     context = {"user_form": CreateUserForm()}
