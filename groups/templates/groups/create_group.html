@@ -1,0 +1,18 @@
+{% extends "accounts/base.html" %}
+
+
+{% block content %}
+<h1> Formulário para criação de um novo grupo</h1>
+
+<fieldset>
+    <form method="post">
+        {% csrf_token %}
+        {{group_form.media}}
+        {{group_form.as_table}}
+        <script type="text/javascript" src="{% url 'jsi18n' %}"></script>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <a href="{% url 'index' %}" class="btn btn-secondary">Voltar</button>
+    </form>
+</fieldset>
+
+{% endblock %}
