@@ -14,6 +14,7 @@ class CreateUserForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CreateUserForm, self).__init__(*args, **kwargs)
         self.fields["username"].required = True
+        self.fields["username"].help_text = ""
         self.fields["email"].required = True
         self.fields["password"].required = True
         self.fields["user_type"].label = "Cargo"        
