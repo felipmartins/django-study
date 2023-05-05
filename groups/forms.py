@@ -29,5 +29,5 @@ class CreateGroupForm(forms.ModelForm):
         super(CreateGroupForm, self).__init__(*args, **kwargs)
         self.fields["title"].required = True
         self.fields["title"].label = "Nome do Grupo"
-        self.fields["users"].label = "Pessoas Usuárias do Grupo"
+        self.fields["users"].label = ""
         
