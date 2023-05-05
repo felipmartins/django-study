@@ -12,8 +12,7 @@ class CreateGroupForm(forms.ModelForm):
             "all": ('/static/admin/css/widgets.css',)
         }
         js = ("/admin/jsi18n",)
-    # Se comentar as linhas 16-20 verá um widget não tão legal quanto 
-    # ao que é mostrado quando as linhas não estão comentadas.
+
     users = forms.ModelMultipleChoiceField(
         queryset=User.objects.all(),
         widget=FilteredSelectMultiple("Pessoas usuárias", False),
@@ -29,5 +28,32 @@ class CreateGroupForm(forms.ModelForm):
         super(CreateGroupForm, self).__init__(*args, **kwargs)
         self.fields["title"].required = True
         self.fields["title"].label = "Nome do Grupo"
+        self.fields["users"].label = ""
+
+
+
+class UpdateUsersGroupForm(forms.ModelForm):
+
+    class Media:
+        css = {
+            "all": ('/static/admin/css/widgets.css',)
+        }
+        js = ("/admin/jsi18n",)
+
+    users = forms.ModelMultipleChoiceField(
+        queryset=User.objects.all(),
+        widget=FilteredSelectMultiple("Pessoas usuárias", False),
+        required = True
+    )
+
+
+    class Meta:
+        model = Group
+        fields = ["users"]
+
+    def __init__(self, group_id=None, *args, **kwargs):
+        super(UpdateUsersGroupForm, self).__init__(*args, **kwargs)
+        group = Group.objects.get(id=group_id)
+        self.fields["users"].initial = group.users.all()
         self.fields["users"].label = ""
         
