@@ -1,11 +1,14 @@
+{% extends "accounts/base.html" %}
+
+
+{% block content %}
 <h1> Formulário para criação de nova pessoa usuária</h1>
 
 <form method="post">
     {% csrf_token %}
     {{ user_form.as_p }}
-    <input type="submit" class="btn" value="Cadastrar">
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <a href="{% url 'index' %}" class="btn btn-secondary">Voltar</button>
 </form>
 
-<form action="{% url 'index' %}">
-    <input type="submit" value="Voltar" />
-</form>
+{% endblock %}

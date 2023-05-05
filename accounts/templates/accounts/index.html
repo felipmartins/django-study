@@ -1,3 +1,7 @@
+{% extends "accounts/base.html" %}
+
+
+{% block content %}
 
 <h1> Pessoas usuárias </h1>
 
@@ -10,5 +14,8 @@
 {% endfor %}
 
 <form action="{% url 'new-user' %}">
-    <input type="submit" value="Cadastrar nova pessoa usuária" />
+    <button type="submit" class="btn btn-primary">Cadastrar nova pessoa usuária</button>
 </form>
+</form>
+
+{% endblock %}
