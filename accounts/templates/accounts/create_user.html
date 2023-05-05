@@ -1,0 +1,11 @@
+<h1> Formulário para criação de nova pessoa usuária</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <select>
+        <option value="1"> pessoa colaboradora</option>
+        <option value="0"> pessoa liderança</option>
+    </select>
+    {{ user_form.as_p }}
+    <input type="submit" class="btn" value="Cadastrar">
+</form>
