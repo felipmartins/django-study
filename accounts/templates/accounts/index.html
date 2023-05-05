@@ -13,9 +13,9 @@
 
 {% endfor %}
 
-<form action="{% url 'new-user' %}">
-    <button type="submit" class="btn btn-primary">Cadastrar nova pessoa usuária</button>
-</form>
-</form>
+
+<a href="{% url 'new-user' %}" class="btn btn-primary">Cadastrar nova pessoa usuária</button>
+<a href="{% url 'group-index' %}" class="btn btn-primary">Visualizar grupos</button>
+
 
 {% endblock %}
