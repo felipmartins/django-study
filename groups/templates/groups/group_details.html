@@ -11,6 +11,8 @@
 
 {% endfor %}
 
-{% endblock %}
+<a href="{% url 'update-group' group.id %}" class="btn btn-primary">Atualizar pessoas do grupo</a>
+<a href="{% url 'group-index' %}" class="btn btn-secondary">Voltar</a>
 
+{% endblock %}
 
