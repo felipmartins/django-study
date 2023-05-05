@@ -1,0 +1,16 @@
+{% extends "groups/base.html" %}
+
+{% block content %}
+
+<h1> {{ group.title }}</h1>
+
+
+{% for member in group.users.all %}
+
+<p>{{member}}</p>
+
+{% endfor %}
+
+{% endblock %}
+
+
