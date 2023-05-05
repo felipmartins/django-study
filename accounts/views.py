@@ -15,8 +15,11 @@ def create_user(request):
 
         if user_form.is_valid():
             user_data = user_form.cleaned_data
-            User.objects._create_employe(**user_data)
-
+            user_type = user_data.pop("user_type")
+            if user_type == "Colaboradora":
+                User.objects._create_employe(**user_data)
+            else:
+                User.objects._create_manager(**user_data)    
         redirect("index")
     
     context = {"user_form": CreateUserForm()}
