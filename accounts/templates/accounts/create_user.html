@@ -5,3 +5,7 @@
     {{ user_form.as_p }}
     <input type="submit" class="btn" value="Cadastrar">
 </form>
+
+<form action="{% url 'index' %}">
+    <input type="submit" value="Voltar" />
+</form>
