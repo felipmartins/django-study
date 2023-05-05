@@ -21,3 +21,8 @@ def create_group(request):
     context = {"group_form": CreateGroupForm()}
 
     return render(request, "groups/create_group.html", context)
+
+def retrieve_group(request, group_id):
+    
+        context = {"group": Group.objects.get(id=group_id)}
+        return render(request, "groups/group_details.html", context)
