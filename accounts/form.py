@@ -5,7 +5,7 @@ from accounts.models import User
 
 class CreateUserForm(forms.ModelForm):
     password = forms.CharField(label="Senha", widget=forms.PasswordInput())
-    
+    user_type = forms.CharField(max_length=50, widget=forms.Select(choices=[("Liderança", "Liderança"),("Colaboradora", "Colaboradora")]))
 
     class Meta:
         model = User
@@ -16,3 +16,5 @@ class CreateUserForm(forms.ModelForm):
         self.fields["username"].required = True
         self.fields["email"].required = True
         self.fields["password"].required = True
+        self.fields["user_type"].label = "Cargo"        
+        self.fields["user_type"].required = True
