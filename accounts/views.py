@@ -20,7 +20,7 @@ def create_user(request):
                 User.objects._create_employe(**user_data)
             else:
                 User.objects._create_manager(**user_data)    
-        redirect("index")
+        return redirect("index")
     
     context = {"user_form": CreateUserForm()}
 
