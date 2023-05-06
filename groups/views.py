@@ -51,3 +51,9 @@ def update_group_users(request, group_id):
     context = {"group_form": UpdateUsersGroupForm(group_id=group_id)}
 
     return render(request, "groups/update_group_users.html", context)
+
+def delete_group(request, group_id):
+    
+    group = Group.objects.get(id=group_id)
+    group.delete()
+    return redirect('group-index')
