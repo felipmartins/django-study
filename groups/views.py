@@ -23,10 +23,12 @@ def create_group(request):
 
     return render(request, "groups/create_group.html", context)
 
+
 def retrieve_group(request, group_id):
     
         context = {"group": Group.objects.get(id=group_id)}
         return render(request, "groups/group_details.html", context)
+
 
 def update_group_users(request, group_id):    
 
@@ -51,6 +53,7 @@ def update_group_users(request, group_id):
     context = {"group_form": UpdateUsersGroupForm(group_id=group_id)}
 
     return render(request, "groups/update_group_users.html", context)
+
 
 def delete_group(request, group_id):
     
