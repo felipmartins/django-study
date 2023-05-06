@@ -8,6 +8,8 @@
 
 <p>
     <a href="{% url 'group-details' group.id %}">{{group}}</a>
+    <!--create a red X emoji with delete-group url anchored to it without the underline style-->
+    <a href="{% url 'delete-group' group.id %}" style="text-decoration: none; color: red;">❌</a>
 </p>
 
 {% endfor %}
