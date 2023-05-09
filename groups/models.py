@@ -8,4 +8,4 @@ class Group(models.Model):
     users = models.ManyToManyField(User)
 
     def __str__(self):
-        return f"{self.title} - {self.users.all()}"
+        return f"{self.title} - {str([user for user in self.users.all()])}"
