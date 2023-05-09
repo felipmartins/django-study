@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect
 from accounts.form import CreateUserForm
 from accounts.models import User
+from django.contrib.auth.decorators import login_required
 
+
+
+@login_required()
 def index(request):
 
     context = {"users": User.objects.all()}
     return render(request, "accounts/index.html", context)
 
 
+@login_required
 def create_user(request):
 
     if request.method== "POST":
