@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from groups.forms import CreateGroupForm, UpdateUsersGroupForm
 from groups.models import Group
 from accounts.models import User
 
-
+@login_required
 def group_index(request):
 
     context = {"groups": Group.objects.all()}
     return render(request, "groups/index.html", context)
 
-
+@login_required
 def create_group(request):
 
     if request.method == "POST":
@@ -23,13 +24,13 @@ def create_group(request):
 
     return render(request, "groups/create_group.html", context)
 
-
+@login_required
 def retrieve_group(request, group_id):
     
         context = {"group": Group.objects.get(id=group_id)}
         return render(request, "groups/group_details.html", context)
 
-
+@login_required
 def update_group_users(request, group_id):    
 
     if request.method == "POST":
