@@ -1,0 +1,11 @@
+{% extends "accounts/base.html" %}
+<!--Create a bootstrap login page using login django form-->
+{% block content %}
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Login</a>
+</form>
+
+{% endblock %}
